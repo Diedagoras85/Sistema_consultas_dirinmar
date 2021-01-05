@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\MenuController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +15,9 @@ use App\Http\Controllers\homeController;
 */
 Route::get('/', homeController::class);
 
-Route::get('main', function () {
-    //return view('welcome');
-    return "Bienvenido a la página principal";
-});
+Route::get('menu', [MenuController::class,'index']); 
 
-Route::get('login', function () {
-       return "Ud se encuentra en el login principal";
-});
+Route::get('menu/formulario', [MenuController::class,'create']); 
+
+Route::get('menu/mail', [MenuController::class,'show']); 
 
