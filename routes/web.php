@@ -15,9 +15,11 @@ use App\Http\Controllers\MenuController;
 */
 Route::get('/', homeController::class);
 
-Route::get('menu', [MenuController::class,'index']); 
+route::post('menu', MenuController::class,'ingresar')->name('menu.index');
 
-Route::get('menu/formulario', [MenuController::class,'create']); 
+Route::get('menu', [MenuController::class,'index'])->name('menu.index'); 
 
-Route::get('menu/mail', [MenuController::class,'show']); 
+Route::get('menu/formulario', [MenuController::class,'create'])->name('menu.formulario'); 
+
+Route::get('menu/mail', [MenuController::class,'show'])->name('menu.mail'); 
 
