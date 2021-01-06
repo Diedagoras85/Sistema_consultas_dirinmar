@@ -8,15 +8,15 @@ class MenuController extends Controller
 {
     //
     public function index(){
-        return view('menu.index');
+        return "Ud se encuentra en el Menú Principal";
     }
 
     public function create(){
-        return view('menu.formulario');
+        return "Ud se encuentra en el formulario de ingreso de solicitud";
     }
 
     public function show(){
        
-        return view('menu.mail');
+       return "Ud se encuentra en la sección de envío de correo";
     }   
 }
