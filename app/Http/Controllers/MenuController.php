@@ -2,21 +2,34 @@
 
 namespace App\Http\Controllers;
 
+//use App\Models\User;
 use Illuminate\Http\Request;
+
 
 class MenuController extends Controller
 {
     //
+    public function __invoke()
+    {
+        return view('menu.index');
+    }
+
+    /*public function ingresar(Request $request) {
+        
+        $ingreso = new menu();
+        $ingreso->name = $request->name; 
+        //return view('menu.index');
+    }*/
     public function index(){
-        return "Ud se encuentra en el Menú Principal";
+        return view('menu.index');
     }
 
     public function create(){
-        return "Ud se encuentra en el formulario de ingreso de solicitud";
+        return view('menu.formulario');
     }
 
     public function show(){
        
-       return "Ud se encuentra en la sección de envío de correo";
+        return view('menu.mail');
     }   
 }
