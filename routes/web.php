@@ -19,7 +19,8 @@ route::post('menu', MenuController::class,'ingresar')->name('menu.index');
 
 Route::get('menu', [MenuController::class,'index'])->name('menu.index'); 
 
-Route::get('menu/formulario', [MenuController::class,'create'])->name('menu.formulario'); 
+Route::get('menu/formulario', [MenuController::class,'create'])->name('menu.formulario');
+//Route::post('menu/formulario', [MenuController::class,'create'])->name('menu.formulario'); 
 
 Route::get('menu/mail', [MenuController::class,'show'])->name('menu.mail'); 
 
