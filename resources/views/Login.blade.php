@@ -3,9 +3,9 @@
 @section('title', 'Login')
 
 @section('content')
-         <h1>Iniciar Sesión</h1>
-         <form action="{{route('menu.index')}}" method="POST">
-         
+         <h1>Login principal</h1>
+         <form action="{{route("menu.ingresar")}}" method="POST">
+
                @csrf
                
                <Label>
@@ -17,10 +17,10 @@
                <br>
                <br>
                <Label>
-                    Contraseña:
-                    <input type="password" name = "contrasena">
+                Contraseña:
+                <input type="password" name = "contrasena">
                 
-                </Label> 
+            </Label> 
              <br>
              <br>
             <button type="submit">Ingresar</button>
