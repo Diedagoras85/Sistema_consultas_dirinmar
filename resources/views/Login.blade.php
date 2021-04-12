@@ -4,13 +4,13 @@
 
 @section('content')
          <h1>Iniciar Sesión</h1>
-         <form action="{{route('menu.index')}}" method="POST">
+         <form action="{{route('menu.index')}}" method="GET">
          
                @csrf
                
                <Label>
                    Usuario:
-                   <input type="text" name="rut">
+                   <input type="text" name="run">
                    -
                    <input type="text" name="dv" height="1" width="1" size="1">                   
                </Label>
@@ -26,4 +26,5 @@
             <button type="submit">Ingresar</button>
 
          </form>
+
 @endsection

@@ -2,31 +2,28 @@
 @section('title','Formulario Ingreso Solicitud')
 @section('content')
          <h1>Formulario Ingreso Solicitud</h1>
-         <!--form action="{{route('menu.index')}}" method="POST"-->
-         
+         <form action="{{route('menu.store')}}" method="POST">         
             @csrf
             <Label>
-                Nº Solicitud:
+                (*) Nº Solicitud:
                 <input type="text" name="solicitud">                  
             </Label>
             <br>
             <br>
             <Label>
-                Nombre Solicitante:
+                (*) Nombre Solicitante:
                 <input type="text" name="nombre">                  
             </Label>
             <br>
             <br>
             <Label>
                 Run:
-                <input type="text" name="run">
-                -
-                <input type="text" name="dv" height="1" width="1" size="1">                   
+                <input type="text" name="run">                  
             </Label>
             <br>
             <br>
             <Label>
-                 Correo Electrónico:
+                (*) Correo Electrónico:
                  <input type="text" name = "email">
              </Label> 
             <br>
@@ -56,19 +53,25 @@
              <br>
             <br>
             <Label>
-                 Fecha de Ingreso:
-                 <input type="datetime" name = "fechaingreso">
+                País:
+                <input type="text" name = "pais">
+            </Label>
+            <br>
+           <br>
+            <Label>
+                (*) Fecha de Ingreso:
+                 <input type="date" name = "fechaingreso">
              </Label>
              <br>
              <br>
              <Label>
-                Fecha de Respuesta:
-                <input type="datetime" name = "fecharespuesta">
+                (*) Fecha de Respuesta:
+                <input type="date" name = "fecharespuesta">
               </Label>
               <br>
               <br>
               <Label>
-                Departamento Responsable:
+                (*) Departamento Responsable:
                 <select name="depto1">
                   <option>Seleccione Departamento</option>
                   <option>Borde Costero</option>
@@ -102,37 +105,47 @@
             <br>
             <br>
             <label>
-                Forma de Ingreso:
-                <select name="formaingreso">
-                  <option>OIRS</option>  
-                  <option>Mensaje Naval</option>
-                  <option>E-Mail</option>
-                  <option>Oficio</option>
-                  <option>Carta</option>
-                  <option>Otro</option>
+                (*) Forma de Ingreso:
+                <select id="formaingreso" name="formaingreso">
+                  <option value = 0>Seleccione Forma de Ingreso</option>  
+                  <option value = 1>OIRS</option>  
+                  <option value = 2>Mensaje Naval</option>
+                  <option value = 3>E-Mail</option>
+                  <option value = 4>Otro</option>
                 </select>  
             </label>
             <br>
             <br>
             <label>
-                Forma de Ingreso:
-                <select name="formaingreso">
-                  <option>Consulta</option>  
-                  <option>Reclamo</option>
-                  <option>Felicitación</option>
-                  <option>Sugerencia</option>
+                (*) Clasificación:
+                <select id="clasificacion" name="clasificacion">
+                  <option value = 0>Seleccione Clasificación</option>  
+                  <option value = 1>Consulta</option>
+                  <option value = 2>Sugerencia</option>  
+                  <option value = 3>Reclamo</option>
+                  <option value = 4>Solicitud</option>
+                  <option value = 5>Felicitación</option>
+                  
                 </select>  
             </label>
             <br>
             <br>
             <Label>
-                Solicitud:
-                <textarea name="Solicitud" rows="2"></textarea>                  
+                (*) Solicitud:
+                <textarea name="solicitud" rows="2"></textarea>                  
+            </Label>     
+            <br>
+            <br>
+            <Label>
+                Subir archivo:
+                <button name="archivo">Seleccionar archivo</button> No hay ningun archivo seleccionado                  
             </Label>     
             <br>
             <br>  
          <button type="submit">Ingresar Solicitud</button>
-
+         <br>
+         <br> 
+         <button type="submit">Volver</button>         
       </form>
 @endsection
 
