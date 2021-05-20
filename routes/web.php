@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MenuController;
+use App\Http\Controllers\HomeController;
+//use App\Http\Controllers\IngresarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +14,25 @@ use App\Http\Controllers\MenuController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', LoginController::class);
 
-Route::post('/',[LoginController::class,'validar'])->name('Login.validar');
+Route::get('/',function(){
+    return view('auth.login');
+});
 
-Route::get('menu', [MenuController::class,'index'])->name('menu.index'); 
+Route::get('/welcome', HomeController::class)->name('home');
 
-Route::post('menu', MenuController::class,'ingresar')->name('menu.index');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
-Route::get('menu/formulario', [MenuController::class,'create'])->name('menu.formulario');
+Route::get('ingresar', [HomeController::class, 'index'])->name('ingresar.index');
 
-//Route::post('menu/formulario', [MenuController::class,'store'])->name('menu.store'); 
+Route::post('guardar', [HomeController::class, 'store'])->name('ingresar.store');
 
-Route::get('menu/mail', [MenuController::class,'show'])->name('menu.mail'); 
+Route::get('reportes', function(){
+    return "Aqui se mostrará la opción para generar los reportes";
+})->name('reportes.index');
 
+Route::get('estadisticas', function(){
+    return "Aqui se mostrará la opción para generar las estad&iacuteesticas";
+})->name('estadisticas.index');

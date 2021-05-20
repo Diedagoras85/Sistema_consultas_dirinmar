@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Email extends Model
 {
     use HasFactory;
+
+    protected $dateFormat ='Y-m-d\TH:i:s.s';
+
+
+    protected $casts = [
+     'create_at' => 'datetime',
+     'update_at' => 'datetime',
+    ];
+
 }
