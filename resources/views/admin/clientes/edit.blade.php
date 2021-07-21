@@ -3,17 +3,17 @@
 @section('title', 'Sistema de Consultas Dirinmar')
 
 @section('content_header')
-    <h1>Editar Rol</h1>
+    <h1>Editar Cliente</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::model($role, 'route' => ['admin.roles.update', $role], 'method' => 'put') !!}
+            {!! Form::model($cliente, 'route' => ['admin.clientes.update', $cliente], 'method' => 'put') !!}
             
-              @include('admin.roles.partials.form')
+              @include('admin.clientes.partials.form')
             
-            {!! Form::submit('Crear Rol', ['class'=>'btn btn-primary mt-2']) !!}
+            {!! Form::submit('Crear Cliente', ['class'=>'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
         </div>
     </div>

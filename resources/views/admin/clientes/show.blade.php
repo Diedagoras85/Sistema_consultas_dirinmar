@@ -3,12 +3,11 @@
 @section('title', 'Sistema de Consultas Dirinmar')
 
 @section('content_header')
-    <h1>Lista de Usuarios</h1>
+    <h1>Sistema de Consultas Dirinmar</h1>
 @stop
 
 @section('content')
-     @livewire('admin-users')
-   
+    <p>Welcome to this beautiful admin panel.</p>
 @stop
 
 @section('css')

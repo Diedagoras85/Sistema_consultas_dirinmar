@@ -25,15 +25,15 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($roles as $role)
                         <tr>
-                            <td>{{role->id}}</td>
-                            <td>{{role->name}}</td>
+                            <td>{{$role->id}}</td>
+                            <td>{{$role->name}}</td>
                             <td width="10px">
                                 <a class="btn btn-secondary" href="{{route('admin.roles.edit', $role)}}">Editar</a>
                             </td>

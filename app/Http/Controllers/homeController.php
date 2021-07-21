@@ -54,10 +54,10 @@ class HomeController extends Controller
 
         $cliente->save();
         
-        $cliente1 = Cliente::latest('IDCliente')->first();;
+        $cliente1 = Cliente::latest('IDCliente')->first();
 
         $email->IDCliente = $cliente1->IDCliente;
-        $email->NM_Email = $request->email;
+        $email->NMEmail = $request->email;
 
         $email->save();
         

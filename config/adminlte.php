@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Sistema de Consultas Dirinmar',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -190,7 +190,7 @@ return [
     'dashboard_url' => '/welcome',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    '_url' => '',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -248,8 +248,20 @@ return [
         [
             'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
+            'icon'        => 'fas fa-fw fa-users',
             'active'     => ['admin/users*']
+        ],
+        [
+            'text'        => 'Lista de Requerimientos',
+            'route'         => 'admin.users.index',
+            'icon'        => 'far fa-edit',
+            'active'     => ['admin/requerimiento*']
+        ],
+        [
+            'text'        => 'Lista de Clientes',
+            'route'         => 'admin.clientes.index',
+            'icon'        => 'fas fa-user-friends',
+            'active'     => ['admin/clientes*']
         ],
         ['header' => 'account_settings'],
         [

@@ -4,15 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use GuzzleHttp\Middleware;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Http\Request;
+use Illuminate\Routing\RouteRegistrar;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+
+
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index()
     {
         return view('admin.users.index');
@@ -25,29 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        return view('admin.users.show', compact('user'));
+        Auth::logout();
+        return redirect()->intended('register');
     }
 
     /**
@@ -58,7 +41,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        $roles = Role::All();
+        
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     /**
@@ -70,17 +55,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        $user->roles()->sync($request->roles);
+        return redirect()->route('admin.users.edit', $user);
     }
 }

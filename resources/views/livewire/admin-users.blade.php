@@ -1,10 +1,10 @@
 <div>
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.roles.create')}}">Crear nuevo Usuario</a>
+            <a href="{{route('admin.users.create')}}">Crear nuevo Usuario</a>
             <br>
             <br>
-            <input wire:model="search" class="form-control w-100" placeholder="Escriba un nombre">
+            <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nombre">
         </div>
         @if ($users->count())
             

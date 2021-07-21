@@ -19,4 +19,8 @@ class AdminUsers extends Component
                      ->paginate(8);
         return view('livewire.admin-users', compact('users'));
     }
+
+    public function limpiar_page(){
+        $this->reset('page');
+    }
 }
