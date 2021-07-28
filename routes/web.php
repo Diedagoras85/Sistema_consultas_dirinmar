@@ -30,6 +30,8 @@ Route::get('ingresar', [HomeController::class, 'index'])->name('ingresar.index')
 
 Route::post('guardar', [HomeController::class, 'store'])->name('ingresar.store');
 
+Route::get('editar',[HomeController::class, 'edit'])->name('ingresar.edit');
+
 Route::get('reportes', function(){
     return "Aqui se mostrará la opción para generar los reportes";
 })->name('reportes.index');

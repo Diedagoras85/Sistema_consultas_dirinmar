@@ -32,6 +32,7 @@
                         <th>Empresa</th>
                         <th>Ciudad</th>
                         <th>Pais</th>
+                        <th>Accion</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -52,7 +53,7 @@
                                 @endif
                             @endforeach
                             <td width="10px">
-                                <a class="btn btn-secondary" href="{{route('admin.clientes.edit', $cliente)}}">Editar</a>
+                                <a class="btn btn-secondary" href="{{route('admin.clientes.edit', $cliente->IDCliente)}}">Editar</a>
                             </td>
                         </tr>
                     @empty

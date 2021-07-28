@@ -253,7 +253,7 @@ return [
         ],
         [
             'text'        => 'Lista de Requerimientos',
-            'route'         => 'admin.users.index',
+            'route'         => 'admin.requerimientos.index',
             'icon'        => 'far fa-edit',
             'active'     => ['admin/requerimiento*']
         ],

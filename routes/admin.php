@@ -13,7 +13,7 @@ Route::resource('roles', RoleController::class)->names('roles');
 
 Route::resource('users', UserController::class)->only(['index', 'create', 'edit', 'update'])->names('users');
 
-Route::resource('requerimiento', RequerimientoController::class)->names('requerimiento');
+Route::resource('requerimientos', RequerimientoController::class)->names('requerimientos');
 
 Route::resource('clientes', ClienteController::class)->names('clientes');
 

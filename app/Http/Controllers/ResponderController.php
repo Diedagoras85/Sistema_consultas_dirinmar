@@ -1,20 +1,41 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Clasificacione;
+use App\Models\Cliente;
+use App\Models\Departamento;
+use App\Models\Email;
+use App\Models\Formaingreso;
+use App\Models\Paise;
+use App\Models\Requerimiento;
+use App\Models\Deptorequerimiento;
+use App\Models\Clientesrequerimiento;
 
-class RequerimientoController extends Controller
+class ResponderController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($requerimiento)
     {
-        //
+        
+        $r = Clientesrequerimiento::select('IDCliente')->where('IDRequerimiento',$requerimiento)->first();
+        $n = Cliente::select('NMCliente')->where('IDCliente',$r)->first();
+        //$p = Requerimiento::select('IDPais')->where('IDRequerimiento', $requerimiento);
+        //$fi = Requerimiento::select('IDFormaIngreso')->where('IDRequerimiento', $requerimiento);
+        //$cl = Requerimiento::select('IDClasificacion')->where('IDRequerimiento', $requerimiento);
+        //$paises = Paise::select('NMPais')->where('IDPais',$p);
+        //$formaingresos = Formaingreso::All();
+        //$clasificaciones = Clasificacione::All();
+        //$departamentos = Departamento::All();
+        //$involucrados = Departamento::All();
+        //'paises','formaingresos','clasificaciones','departamentos','involucrados','requerimientos'
+        return view('responder.index', compact('n'));
     }
 
     /**

@@ -9,6 +9,8 @@ use App\Models\Email;
 use App\Models\Formaingreso;
 use App\Models\Paise;
 use App\Models\Requerimiento;
+use App\Models\Deptorequerimiento;
+use App\Models\Clientesrequerimiento;
 
 use Illuminate\Http\Request;
 
@@ -19,10 +21,16 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        //$requerimientos = Requerimiento::where("LGRespondido","0")->get();
-        //,compact('requerimientos'
+
+        $requerimientos = Requerimiento::all();
+        $clientes = Cliente::all();
+        $formaingresos = Formaingreso::all();
+        $clasificaciones = Clasificacione::all();
+        $departamentos = Departamento::all();
+        $deptorequerimientos = Deptorequerimiento::all();
+        $clienterequerimientos = Clientesrequerimiento::all();
         
-        return view('welcome');
+        return view('welcome', compact('requerimientos','clientes','formaingresos','clasificaciones','departamentos','deptorequerimientos','clienterequerimientos'));
     }
 
     public function index(){
@@ -74,6 +82,22 @@ class HomeController extends Controller
         $requerimiento->save();
 
         return redirect()->route('home');
+    }
+    
+    Public function edit(Requerimiento $requerimiento){
+        
+        $r = Clientesrequerimiento::select('IDCliente')->where('IDRequerimiento',$requerimiento)->first();
+        $n = Cliente::select('NMCliente')->where('IDCliente',$r)->first();
+        //$p = Requerimiento::selectIDPais')->where('IDRequerimiento', $requerimiento);
+        //$fi = Requerimiento::select('IDFormaIngreso')->where('IDRequerimiento', $requerimiento);
+        //$cl = Requerimiento::select('IDClasificacion')->where('IDRequerimiento', $requerimiento);
+        //$paises = Paise::select('NMPais')->where('IDPais',$p);
+        //$formaingresos = Formaingreso::All();
+        //$clasificaciones = Clasificacione::All();
+        //$departamentos = Departamento::All();
+        //$involucrados = Departamento::All();
+        //'paises','formaingresos','clasificaciones','departamentos','involucrados','requerimientos'
+        return view('ingresar.edit', compact('n'));
     }
 
 }
