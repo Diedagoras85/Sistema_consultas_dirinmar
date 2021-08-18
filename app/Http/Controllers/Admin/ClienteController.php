@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 //use App\Models\Clientemail;
 //use App\Models\Email;
 use App\Models\Paise;
+use illuminate\support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -20,9 +21,8 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
-        $paises = Paise::all();
 
-        return view('admin.clientes.index', compact('clientes', 'paises'));
+        return view('admin.clientes.index', compact('clientes'));
     }
 
     /**
@@ -59,7 +59,7 @@ class ClienteController extends Controller
         $clientes->NRMovil = $request->NRMovil;
         $clientes->GLEmpresa = $request->GLEmpresa;
         $clientes->GLCiudad = $request->GLCiudad;
-        $clientes->IDPais = $request->IDPais;
+        $clientes->NMPais = $request->NMPais;
         
         $clientes->save();
         
@@ -94,10 +94,14 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $Clientes)
+    public function edit(Request $request)
     {
-        $pais = Paise::all();
-        return view('admin.clientes.edit', compact('cliente','pais'));
+        //$sql = "SELECT * FROM Clientes WHERE IDCliente =?";
+        //$cliente = DB::select($sql, $request);
+        $cliente =  Cliente::where('IDCliente',$request->IDCliente)->get();
+        //$paises = Paise::all();
+
+        return view('admin.clientes.edit', compact('cliente'));
     }
 
     /**
@@ -110,19 +114,18 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         $request->validate([
-            'name' => 'required',
-            'mail' => 'required'
+            'NMCliente' => 'required',
         ]);
 
         $cliente->update([
-            'NMCliente' => $request->name,
-            'NRRun' => $request->run,
-            'NMDireccion' => $request->direccion,
-            'NRTelefono' => $request->fono,
-            'NRMovil' => $request->movil,
-            'GLEmpresa' => $request->empresa,
-            'GLCiudad' => $request->ciudad,
-            'IDPais' => $request ->pais
+            'NMCliente' => $request->NMCliente,
+            'NRRun' => $request->NRRun,
+            'NMDireccion' => $request->NMDireccion,
+            'NRTelefono' => $request->NRTelefono,
+            'NRMovil' => $request->NRMovil,
+            'GLEmpresa' => $request->GLEmpresa,
+            'GLCiudad' => $request->GLCiudad,
+            'NMPais' => $request ->NMPais
         ]);
         //$cliente->permissions()->sync($request->permissions);
         return redirect()->route('admin.clientes.edit', $cliente);

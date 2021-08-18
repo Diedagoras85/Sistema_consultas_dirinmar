@@ -13,10 +13,9 @@
     {!! Form::text('GLEmpresa', null, ['class'=> 'form-control', 'placeholder' => 'Escriba una empresa']) !!}
     {!! Form::label('GLCiudad', 'Ciudad: ') !!}
     {!! Form::text('GLCiudad', null, ['class'=> 'form-control', 'placeholder' => 'Escriba una ciudad']) !!}
-    <strong>Paises</strong>
-    <br>
-    {!! Form::select('IDPais', $paises->pluck('NMNombre', 'IDPais'), null, ['class'=> 'form-control']) !!}
-    @error('NMCliente')
+    {!! Form::label('NMPais', 'Ciudad: ') !!}
+    {!! Form::text('NMPais', null, ['class'=> 'form-control', 'placeholder' => 'Escriba un pais']) !!}
+    @error('name')
         <span class="invalid-feedback">
               <strong>{{$message}}</strong>
         </span>

@@ -47,11 +47,8 @@
                             <td>{{$cliente->NRMovil}}</td>
                             <td>{{$cliente->GLEmpresa}}</td>
                             <td>{{$cliente->GLCiudad}}</td>
-                            @foreach ($paises as $pais)
-                                @if ($pais->IDPais == $cliente->IDPais)
-                                     <td>{{$pais->NMNombre}}</td>   
-                                @endif
-                            @endforeach
+                            <td>{{$cliente->NMPais}}</td>      
+
                             <td width="10px">
                                 <a class="btn btn-secondary" href="{{route('admin.clientes.edit', $cliente->IDCliente)}}">Editar</a>
                             </td>

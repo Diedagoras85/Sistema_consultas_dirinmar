@@ -263,6 +263,12 @@ return [
             'icon'        => 'fas fa-user-friends',
             'active'     => ['admin/clientes*']
         ],
+        [
+            'text'        => 'Emails',
+            'route'         => '#',
+            'icon'        => 'fas fa-user-friends',
+            'active'     => ['#']
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
