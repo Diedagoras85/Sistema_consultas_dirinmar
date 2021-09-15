@@ -6,11 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
-//use App\Models\Clientemail;
-//use App\Models\Email;
-use App\Models\Paise;
-use illuminate\support\Facades\DB;
-
 class ClienteController extends Controller
 {
     /**
@@ -32,8 +27,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        $paises = Paise::all();
-        return view('admin.clientes.create', compact('paises'));
+        return view('admin.clientes.create');
     }
 
     /**
@@ -44,35 +38,21 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $clientes = new Cliente;
-        /**$email2 = new Email();
-        $cliemail = new Clientemail();**/
-        
+
         $request->validate([
-            'name'=>'required'
+            'NMCliente'=>'required'
         ]);
-        
-        $clientes->NMCliente = $request->NMCliente;
-        $clientes->NRRun = $request->NRRun;
-        $clientes->NMDireccion = $request->NMDireccion;
-        $clientes->NRTelefono = $request->NRTelefono;
-        $clientes->NRMovil = $request->NRMovil;
-        $clientes->GLEmpresa = $request->GLEmpresa;
-        $clientes->GLCiudad = $request->GLCiudad;
-        $clientes->NMPais = $request->NMPais;
-        
-        $clientes->save();
-        
-        /**$email2->NMEmail = $request->mail;
-        $email2->save();
 
-        $cliente1 = Cliente::latest('IDCliente')->first();
-        $email1 = Email::latest('IDEmail')->first();
-
-        $cliemail->IDCliente = $cliente1->IDCliente;
-        $cliemail->IDEmail = $email1->IDEmail;
-
-        $cliemail->save();**/
+        $Cliente = Cliente::create([
+            'NMCliente' => $request->NMCliente,
+            'NRRun' => $request->NRRun,
+            'NMDireccion' => $request->NMDireccion,
+            'NRTelefono' => $request->NRTelefono,
+            'NRMovil' => $request->NRMovil,
+            'GLEmpresa' => $request->GLEmpresa,
+            'GLCiudad' => $request->GLCiudad,
+            'NMPais' => $request->NMPais
+        ]);
 
         return redirect()->route('admin.clientes.index')->with('info','El cliente se creo satisfactoriamente');
     }
@@ -94,12 +74,8 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Cliente $cliente)
     {
-        //$sql = "SELECT * FROM Clientes WHERE IDCliente =?";
-        //$cliente = DB::select($sql, $request);
-        $cliente =  Cliente::where('IDCliente',$request->IDCliente)->get();
-        //$paises = Paise::all();
 
         return view('admin.clientes.edit', compact('cliente'));
     }
@@ -114,7 +90,7 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         $request->validate([
-            'NMCliente' => 'required',
+            'NMCliente' => 'required'
         ]);
 
         $cliente->update([

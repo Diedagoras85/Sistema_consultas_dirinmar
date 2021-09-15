@@ -255,7 +255,7 @@ return [
             'text'        => 'Lista de Requerimientos',
             'route'         => 'admin.requerimientos.index',
             'icon'        => 'far fa-edit',
-            'active'     => ['admin/requerimiento*']
+            'active'     => ['admin/requerimientos*']
         ],
         [
             'text'        => 'Lista de Clientes',
@@ -265,9 +265,27 @@ return [
         ],
         [
             'text'        => 'Emails',
-            'route'         => '#',
-            'icon'        => 'fas fa-user-friends',
-            'active'     => ['#']
+            'route'         => 'admin.emails.index',
+            'icon'        => 'far fa-envelope',
+            'active'     => ['admin/emails*']
+        ],
+        [
+            'text'        => 'Asignar Usuario-Depto',
+            'route'         => 'admin.usuariodeptos.index',
+            'icon'        => 'fa fa-briefcase',
+            'active'     => ['admin/usuariodeptos*']
+        ],
+        [
+            'text'        => 'Enviar Alerta',
+            'route'         => 'admin.alertas.index',
+            'icon'        => 'fas fa-envelope-open-text',
+            'active'     => ['admin/alertas*']
+        ],
+        [
+            'text'        => 'Reportes',
+            'route'         => 'admin.reportes.index',
+            'icon'        => 'far fa-file-pdf',
+            'active'     => ['admin/reportes*']
         ],
         ['header' => 'account_settings'],
         [
@@ -317,22 +335,6 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 

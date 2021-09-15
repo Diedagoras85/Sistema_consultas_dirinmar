@@ -17,52 +17,74 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.requerimiento.create')}}">Crear nuevo Requerimiento</a>
+            <a href="{{route('admin.requerimientos.create')}}">Crear nuevo Requerimiento</a>
         </div>
         <div class="card-body">
             <table class= "table table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Cod Solicitud</th>
                         <th>Nombre Solicitante</th>
                         <th>Identificacion</th>
+                        <th>Departamento</th>
                         <th>Forma Ingreso</th>
+                        <th>Clasificacion</th>
                         <th>Fecha Ingreso</th>
                         <th>Fecha Respuesta</th>
                         <th>Estado</th>
+                        <th>Total Dias</th>
+                        <th>Accion</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($requerimientos as $requerimiento)
                         <tr>
-                            <td>{{$requerimiento->IDRequerimiento}}</td>
                             <td>{{$requerimiento->CDSolicitud}}</td>
                             @foreach ($clientereqs as $clientereq)
-                                @if ($clientereq->IDRequerimiento == $requerimiento->IDRequerimiento)
+                                @if ($clientereq->IDRequerimiento == $requerimiento->id)
                                      @foreach ($clientes as $cliente)
-                                          @if ($cliente->IDCliente == $clientereq->IDCliente)
+                                          @if ($cliente->id == $clientereq->IDCliente)
                                                <td>{{$cliente->NMCliente}}</td>
                                                <td>{{$cliente->NRRun}}</td>
                                           @endif
                                      @endforeach    
                                 @endif
                             @endforeach
-                            <td>{{$requerimiento->FCIngreso}</td>
-                            <td>{{$requerimiento->FCRespusta}}</td>
-                            <td>{{$requerimiento->NMDireccion}}</td>
-                            <td>{{$requerimiento->NRTelefono}}</td>
-                            <td>{{$requerimiento->NRMovil}}</td>
-                            <td>{{$requerimiento->GLEmpresa}}</td>
-                            <td>{{$requerimiento->GLCiudad}}</td>
+                            @foreach ($deptoreqs as $deptoreq)
+                                @if ($deptoreq->IDRequerimiento == $requerimiento->id)
+                                     @foreach ($departamentos as $departamento)
+                                          @if ($departamento->IDDepto == $deptoreq->IDDepto)
+                                               <td>{{$departamento->NMDepto}}</td>
+                                          @endif
+                                     @endforeach    
+                                @endif
+                            @endforeach
+                            @foreach ($formas as $forma)
+                                @if ($forma->IDFormaIngreso == $requerimiento->IDFormaIngreso)
+                                    <td>{{$forma->NMFormaIngreso}}</td>
+                                @endif
+                            @endforeach 
+                            @foreach ($clasificaciones as $clasificacione)
+                                @if ($clasificacione->IDClasificacion == $requerimiento->IDClasificacion)
+                                    <td>{{$clasificacione->NMClasificacion}}</td>
+                                @endif
+                            @endforeach 
+                            <td>{{$requerimiento->FCIngreso}}</td>
+                            <td>{{$requerimiento->FCRespuesta}}</td>
+                            @if ($requerimiento->LGRespondido == 1)
+                                <td>Terminado</td>
+                            @else
+                                <td>Pendiente</td>
+                            @endif
+                            <td>{{$requerimiento->NRDiaatraso}}</td>
                             <td width="10px">
                                 <a class="btn btn-secondary" href="{{route('admin.requerimientos.edit', $requerimiento)}}">Editar</a>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No hay ningún cliente registrado</td>
+                            <td colspan="4">No hay ningún requerimiento registrado</td>
                         </tr>
                     @endforelse
                 </tbody>

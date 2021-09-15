@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 //use App\Http\Controllers\IngresarController;
+use App\Http\Controllers\ReportesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +31,10 @@ Route::get('ingresar', [HomeController::class, 'index'])->name('ingresar.index')
 
 Route::post('guardar', [HomeController::class, 'store'])->name('ingresar.store');
 
-Route::get('editar',[HomeController::class, 'edit'])->name('ingresar.edit');
+Route::get('editar/{requerimiento}/edit',[HomeController::class, 'edit'])->name('ingresar.edit');
 
-Route::get('reportes', function(){
-    return "Aqui se mostrará la opción para generar los reportes";
-})->name('reportes.index');
+Route::post('enviar', [HomeController::class, 'update'])->name('ingresar.update');
 
-Route::get('estadisticas', function(){
-    return "Aqui se mostrará la opción para generar las estad&iacuteesticas";
-})->name('estadisticas.index');
+Route::get('reportes', [ReportesController::class, 'index'])->name('reportes.index');
+
+Route::get('imprimir', [ReportesController::class, 'create'])->name('reportes.create');

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Deptorequerimiento extends Model
 {
     use HasFactory;
+
+    protected $dateFormat ='Y-m-d\TH:i:s.s';
+
+    protected $fillable = ['IDRequerimiento','IDDepto'];
+
+    protected $casts = [
+     'created_at' => 'datetime',
+     'updated_at' => 'datetime',
+    ];
 }

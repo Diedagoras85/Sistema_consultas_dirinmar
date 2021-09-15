@@ -13,8 +13,8 @@
         ],
         [
             'name' => 'Reportes',
-            'route' => '#',
-            'active' => '#'
+            'route' => route('reportes.index'),
+            'active' => request()->routeIs('reportes.index')
         ],
     ];  
 @endphp

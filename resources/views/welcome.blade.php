@@ -51,11 +51,11 @@
                                 </svg></td>
                         @endif
                         @foreach ($clienterequerimientos as $clienterequerimiento)
-                                @if ($clienterequerimiento->IDRequerimiento == $requerimiento->IDRequerimiento)
+                                @if ($clienterequerimiento->IDRequerimiento == $requerimiento->id)
                                       @foreach ($clientes as $cliente)
-                                            @if (($cliente->IDCliente == $clienterequerimiento->IDCliente))
-                                                <td class="p-1 border-r border-l text-sm font-thin text-gray-500">
-                                                  <div class="flex items-center justify-center">{{$cliente->NMCliente}}</div></td>
+                                            @if (($cliente->id == $clienterequerimiento->IDCliente))
+                                                  <td class="p-1 border-r border-l text-sm font-thin text-gray-500">
+                                                    <div class="flex items-center justify-center">{{$cliente->NMCliente}}</div></td>
                                             @endif 
                                       @endforeach   
                                 @endif
@@ -66,18 +66,18 @@
                                     <div class="flex items-center justify-center">{{$formaingreso->NMFormaIngreso}}</div></td>
                               @endif 
                         @endforeach
-                        @foreach ($clasificaciones as $clasificacion)
-                              @if ($clasificacion->IDClasificacion == $requerimiento->IDClasificacion)
-                              <td class="p-1 border-r border-l border-t text-sm font-thin text-gray-500">
-                                <div class="flex items-center justify-center">{{$clasificacion->NMClasificacion}}</div></td>
+                        @foreach ($clasificaciones as $clasificacione)
+                              @if ($clasificacione->IDClasificacion == $requerimiento->IDClasificacion)
+                                    <td class="p-1 border-r border-l border-t text-sm font-thin text-gray-500">
+                                      <div class="flex items-center justify-center">{{$clasificacione->NMClasificacion}}</div></td>
                               @endif 
                         @endforeach
                         @foreach ($deptorequerimientos as $deptorequerimiento)
-                                @if ($deptorequerimiento->IDRequerimiento == $requerimiento->IDRequerimiento)
+                                @if ($deptorequerimiento->IDRequerimiento == $requerimiento->id)
                                       @foreach ($departamentos as $departamento)
-                                            @if (($departamento->IDDepto == $deptorequerimiento->IDDepto))
-                                            <td class="p-1 border-r border-l border-t text-sm font-thin text-gray-500">
-                                              <div class="flex items-center justify-center">{{$departamento->NMDepto}}</div></td>
+                                            @if ($departamento->IDDepto == $deptorequerimiento->IDDepto)
+                                                  <td class="p-1 border-r border-l border-t text-sm font-thin text-gray-500">
+                                                    <div class="flex items-center justify-center">{{$departamento->NMDepto}}</div></td>
                                             @endif 
                                       @endforeach   
                                 @endif
@@ -87,7 +87,7 @@
                         <td class="p-1 border-r border-l border-t text-sm font-thin text-gray-500">
                             <div class="flex items-center justify-center">{{$requerimiento->FCRespuesta}}</div></td>
                         <td width="10px" class="p-1 border-r border-l border-t text-sm font-thin text-gray-500">
-                            <a class="btn btn-info" href="{{ route('ingresar.edit', $requerimiento->IDRequerimiento) }}">Ver</a>
+                            <a class="btn btn-info" href="{{ route('ingresar.edit', $requerimiento) }}">Ver</a>
                         </td>
                     </tr>
                 @endforeach

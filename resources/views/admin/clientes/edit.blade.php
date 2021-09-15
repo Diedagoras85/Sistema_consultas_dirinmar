@@ -10,9 +10,10 @@
     <div class="card">
         <div class="card-body">
             {!! Form::model($cliente, ['route' => ['admin.clientes.update', $cliente], 'method' => 'put']) !!}
-              @include('admin.clientes.partials.form')
+              
+                @include('admin.clientes.partials.form')
             
-            {!! Form::submit('Crear Cliente', ['class'=>'btn btn-primary mt-2']) !!}
+            {!! Form::submit('Actualizar Cliente', ['class'=>'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
         </div>
     </div>

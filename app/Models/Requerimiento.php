@@ -11,6 +11,7 @@ class Requerimiento extends Model
     
     protected $dateFormat ='Y-m-d\TH:i:s.s';
 
+    protected $fillable = ['CDSolicitud','GLRequerimiento','IDClasificacion','FCIngreso','FCRespuesta','IDFormaIngreso','LGRespondido','NRDiaatraso','GLRespuesta','NRHh','IDAdjunto'];
 
     protected $casts = [
      'FCIngreso' => 'datetime',

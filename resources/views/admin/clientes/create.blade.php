@@ -13,7 +13,7 @@
                
                @include('admin.clientes.partials.form')
                
-               {!! Form::submit('Actualizar Cliente', ['class'=>'btn btn-primary mt-2']) !!}
+               {!! Form::submit('Ingresar Cliente', ['class'=>'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
         </div>
     </div>

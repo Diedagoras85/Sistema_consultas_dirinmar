@@ -12,6 +12,7 @@ class Email extends Model
 
     protected $dateFormat ='Y-m-d\TH:i:s.s';
 
+    protected $fillable = ['NMEmail'];
 
     protected $casts = [
      'created_at' => 'datetime',

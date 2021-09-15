@@ -1,6 +1,11 @@
 <div class="form-group">
     {!! Form::label('NMCliente', 'Nombre: ') !!}
     {!! Form::text('NMCliente', null, ['class'=> 'form-control' . ($errors->has('NMCliente') ? ' is-invalid' : ''), 'placeholder' => 'Escriba un nombre']) !!}
+    @error('NMCliente')
+        <span class="invalid-feedback">
+              <strong>{{$message}}</strong>
+        </span>
+    @enderror
     {!! Form::label('NRRun', 'Run: ') !!}
     {!! Form::text('NRRun', null, ['class'=> 'form-control', 'placeholder' => 'Escriba un run 01234567-8']) !!}
     {!! Form::label('NMDireccion', 'Direccion: ') !!}
@@ -13,12 +18,8 @@
     {!! Form::text('GLEmpresa', null, ['class'=> 'form-control', 'placeholder' => 'Escriba una empresa']) !!}
     {!! Form::label('GLCiudad', 'Ciudad: ') !!}
     {!! Form::text('GLCiudad', null, ['class'=> 'form-control', 'placeholder' => 'Escriba una ciudad']) !!}
-    {!! Form::label('NMPais', 'Ciudad: ') !!}
+    {!! Form::label('NMPais', 'Pais: ') !!}
     {!! Form::text('NMPais', null, ['class'=> 'form-control', 'placeholder' => 'Escriba un pais']) !!}
-    @error('name')
-        <span class="invalid-feedback">
-              <strong>{{$message}}</strong>
-        </span>
-    @enderror
+    
 
  </div>
