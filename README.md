@@ -1,12 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## Sobre Laravel
 
 Laravel es un marco de aplicación web con una sintaxis elegante y expresiva. Creemos que el desarrollo debe ser una experiencia divertida y creativa para ser verdaderamente satisfactorio. Laravel elimina la molestia del desarrollo al facilitar las tareas comunes que se utilizan en muchos proyectos web, como:
@@ -39,22 +32,27 @@ SQL Server Management Studio es una aplicación de software lanzada por primera 
 
 Para comenzar se deben instalar: 
 
-1.- Composer. 
-2.- Laragon. 
+1.- Composer.
+
+2.- Laragon.
+
 3.- Node JS.
 
 para cargar las librerías y dependecias de las que se nutrirá el sistema.
 
-4.- SQL SERVER EXPRESS (MOtor Base de Datos)
+4.- SQL SERVER EXPRESS (MOtor Base de Datos).
+
 5.- SQL Managment Edition (Interfaz de administración de la BD).
 
 Para montar la base de datos y de ahí hacer las operaciones de lectura y escritura de datos.
 
 Una vez instalada las dependecias, se debe crear la base de datos, para ello se debe ejecutar el Script que contiene las relaciones, tablas y datos de la BD.
 
-Para configurar la base de datos, se debe crear un perfil de acceso y posteriormente configurarla en el archivo .env que viene junto al código para poder configurar la conexión de la base de datos montada en nuestro servidor.
+Para configurar la base de datos, se debe crear un perfil de acceso en el servidor.
 
-Configurar las rutas de acceso al servidor en el servidor, haciendo referencia al proyecto para que los usuarios puedan consumir los recursos y la aplicación indicando la ruta y haciendo referencia al servidor.
+Posteriormente configurarla la conexión en el archivo .env que viene junto al código para enlazar la conexión de la base de datos montada en nuestro servidor.
+
+Configurar las rutas de acceso de las conexiones en el servidor (IIS), haciendo referencia al proyecto para que los usuarios puedan consumir los recursos y la aplicación indicando la ruta y haciendo referencia al servidor.
 
 
 
