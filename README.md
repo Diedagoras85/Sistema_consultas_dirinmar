@@ -28,7 +28,7 @@ Versión "ligera" de Microsoft SQL server. Ésta sirve para uso libre y distribu
 
 SQL Server Management Studio es una aplicación de software lanzada por primera vez con Microsoft SQL Server 2005 que se utiliza para configurar, administrar y administrar todos los componentes dentro de Microsoft SQL Server. Es el sucesor de Enterprise Manager en SQL 2000 o antes.
 
-# INTALACIÓN
+# Instalación
 
 Para comenzar se deben instalar: 
 
