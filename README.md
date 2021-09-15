@@ -11,52 +11,50 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Recursos a instalar para funcionamiento del sistema
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1.- Laragon
 
-## Learning Laravel
+Laragon mejora el desarrollo web. Los desarrolladores de todo el mundo están utilizando Laragon para crear aplicaciones de forma rápida y sencilla. Es utilizado por miles de desarrolladores con cariño. Puede consultar los Testimonios para ver cómo piensan los usuarios de Laragon y su página de funciones para obtener más detalles.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2.- NODE JS
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Node.js es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada a eventos y basado en el motor V8 de Google.
 
-## Laravel Sponsors
+3.- Composer
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Composer es un sistema de gestión de paquetes para programar en PHP el cual provee los formatos estándar necesarios para manejar dependencias y librerías de PHP. Fue desarrollado por Nils Adermann y Jordi Boggiano quienes continúan dirigiendo el proyecto.
 
-### Premium Partners
+4.- SQL SERVER EXPRESS 2017
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Microsoft SQL Server es un sistema de gestión de base de datos relacional, desarrollado por la empresa Microsoft. El lenguaje de desarrollo utilizado es Transact-SQL, una implementación del estándar ANSI del lenguaje SQL, utilizado para manipular y recuperar datos, crear tablas y definir relaciones entre ellas.
 
-## Contributing
+Versión "ligera" de Microsoft SQL server. Ésta sirve para uso libre y distribuible a los desarrolladores de software.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5.- SQL MANAGMENT EDITION
 
-## Code of Conduct
+SQL Server Management Studio es una aplicación de software lanzada por primera vez con Microsoft SQL Server 2005 que se utiliza para configurar, administrar y administrar todos los componentes dentro de Microsoft SQL Server. Es el sucesor de Enterprise Manager en SQL 2000 o antes.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# INTALACIÓN
 
-## Security Vulnerabilities
+Para comenzar se deben instalar: 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1.- Composer. 
+2.- Laragon. 
+3.- Node JS.
 
-## License
+para cargar las librerías y dependecias de las que se nutrirá el sistema.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4.- SQL SERVER EXPRESS (MOtor Base de Datos)
+5.- SQL Managment Edition (Interfaz de administración de la BD).
+
+Para montar la base de datos y de ahí hacer las operaciones de lectura y escritura de datos.
+
+Una vez instalada las dependecias, se debe crear la base de datos, para ello se debe ejecutar el Script que contiene las relaciones, tablas y datos de la BD.
+
+Para configurar la base de datos, se debe crear un perfil de acceso y posteriormente configurarla en el archivo .env que viene junto al código para poder configurar la conexión de la base de datos montada en nuestro servidor.
+
+Configurar las rutas de acceso al servidor en el servidor, haciendo referencia al proyecto para que los usuarios puedan consumir los recursos y la aplicación indicando la ruta y haciendo referencia al servidor.
+
+
+
