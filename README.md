@@ -1,9 +1,11 @@
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 ## Sobre Laravel
 
 Laravel es un marco de aplicación web con una sintaxis elegante y expresiva. Creemos que el desarrollo debe ser una experiencia divertida y creativa para ser verdaderamente satisfactorio. Laravel elimina la molestia del desarrollo al facilitar las tareas comunes que se utilizan en muchos proyectos web, como:
 
 ## Recursos a instalar para funcionamiento del sistema
+
 1.- Laragon v5.0.0210523
 
 Laragon mejora el desarrollo web. Los desarrolladores de todo el mundo están utilizando Laragon para crear aplicaciones de forma rápida y sencilla. Es utilizado por miles de desarrolladores con cariño. Puede consultar los Testimonios para ver cómo piensan los usuarios de Laragon y su página de funciones para obtener más detalles.
@@ -135,7 +137,7 @@ Crear archivo web.config en la carpeta del proyecto Laravel
 Nos ubicamos en la carpeta raiz del proyecto
 Creamos el archivo web.config con el siguiente contenido
  
- <!--<configuration>
+ <configuration>
     <system.webServer>
         <defaultDocument>
             <files>
@@ -169,4 +171,4 @@ Creamos el archivo web.config con el siguiente contenido
         </rewrite>
         <httpErrors errorMode="Detailed" />
     </system.webServer>
- </configuration>-->
+ </configuration>

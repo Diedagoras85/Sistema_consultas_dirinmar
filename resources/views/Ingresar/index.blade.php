@@ -67,7 +67,7 @@
                     <select name="pais" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                       <option selected> </option>
                       @foreach ($paises as $pais)
-                          <option value={{$pais->IDPais}}>{{$pais->NMNombre}}</option> 
+                          <option value={{$pais->NMNombre}}>{{$pais->NMNombre}}</option> 
                       @endforeach
                     </select>
                   </div>
@@ -80,11 +80,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                   <div class="grid grid-cols-1">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Fecha Ingreso</label>
-                    <input name="fechaing" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" value="hoy" />
+                    <input name="fechaing" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" value="<?php echo date('Y-m-d'); ?>" />
                   </div>
                   <div class="grid grid-cols-1">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Fecha Término</label>
-                    <input name="fechater" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" />
+                    <input name="fechater" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" value="<?php echo date('Y-m-d'); ?>"/>
                   </div>
                 </div>
 
@@ -114,9 +114,9 @@
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Departamento Asignado</label>
                     <select name="depto1" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                       <option selected> </option>
-                      @foreach ($departamentos as $departamento)
-                          <option  value={{$departamento->IDDepto}}>{{$departamento->NMDepto}}</option> 
-                      @endforeach
+                          @foreach ($departamentos as $departamento)
+                              <option  value={{$departamento->IDDepto}}>{{$departamento->NMDepto}}</option> 
+                          @endforeach
                     </select>
                   </div>
                   <div class="grid grid-cols-1">

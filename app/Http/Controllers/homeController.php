@@ -14,6 +14,11 @@ use App\Models\Deptorequerimiento;
 use App\Models\Clientesrequerimiento;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EnviarRequerimiento;
+use App\Mail\RecibirRequerimiento;
+use App\Models\User;
+use App\Models\Usuariodepto;
+use Illuminate\Support\Arr;
+
 
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Else_;
@@ -52,6 +57,9 @@ class HomeController extends Controller
         $cliente = new Cliente();
         $email = new Email();
         $requerimiento = new Requerimiento();
+        $deptoreq = new Deptorequerimiento();
+        $clientemail = new Clientemail();
+        $clientereq = new Clientesrequerimiento();
 
 
         $cliente->NMCliente = $request->nombre;
@@ -61,29 +69,62 @@ class HomeController extends Controller
         $cliente->NRMovil = $request->movil;
         $cliente->GLEmpresa = $request->empresa;
         $cliente->GLCiudad = $request->ciudad;
-        $cliente->GLPais = $request->pais;
+        $cliente->NMPais = $request->pais;
         
 
         $cliente->save();
         
-        $cliente1 = Cliente::latest('IDCliente')->first();
+        $cliente1 = Cliente::latest('id')->first();
 
-        $email->IDCliente = $cliente1->IDCliente;
         $email->NMEmail = $request->email;
 
         $email->save();
+
+        $email1 = Email::latest('id')->first();
+
+        $clientemail->IDCliente = $cliente1->id;
+        $clientemail->IDEmail =  $email1->id;
+
+        $clientemail->save();
         
         $requerimiento->CDSolicitud = $request->idconsulta;
         $requerimiento->GLRequerimiento = $request->consulta;
         $requerimiento->IDClasificacion = $request->clasificacion;
         $requerimiento->FCIngreso = $request->fechaing;
         $requerimiento->FCRespuesta = $request->fechater;
-        $requerimiento->IDDepto = $request->depto1;
-        $requerimiento->IDDepto2 = $request->depto2;
         $requerimiento->IDFormaIngreso = $request->forma;
         $requerimiento->NRHh = 0;
 
         $requerimiento->save();
+
+        $requerimiento1 = Requerimiento::latest('id')->first();
+
+        $clientereq->IDCliente = $cliente1->id;
+        $clientereq->IDRequerimiento = $requerimiento1->id;
+
+        $clientereq->save();
+
+        $deptoreq->IDRequerimiento = $requerimiento1->id;
+        $deptoreq->IDDepto = $request->depto1;
+
+        $deptoreq->save();
+
+        $mail = new RecibirRequerimiento($requerimiento);
+
+        $usuariodeptos = Usuariodepto::all();
+        $users = User::all();
+        $correo = [];
+        foreach ($usuariodeptos as $usuariodepto) {
+            if ($usuariodepto->IDDepto == $request->departamento) {
+                foreach ($users as $user) {
+                    if ($user->id == $usuariodepto->IDUsuario){
+                        $correo = Arr::add($correo, 'correo' ,$user->email);
+                    }
+                }
+            } 
+        }
+        
+        Mail::to($correo)->send($mail);
 
         return redirect()->route('home');
     }
@@ -107,6 +148,7 @@ class HomeController extends Controller
         $requerimiento = Requerimiento::where('CDSolicitud','=',$request->idconsulta);
 
         $requerimiento->update([
+            'FCRespuesta' => $request->fechater,
             'GLRespuesta' => $request->respuesta,
             'NRHh' => $request->hh,
             'LGRespondido' => 1
